@@ -54,6 +54,7 @@ void mostrarStatus(char nome[], int vida, int vidaMaxima, int ataque, int defesa
 void inventariomenu(int inventario[], int *quantidadeItens, int *vida, int vidaMaxima);
 
 void combate(int inventario[], int *quantidadeItens, int *vida, int *vidaMaxima, int *ataque, int *defesa, int *ouro, int *experiencia, int *nivel);
+
 //Seletor aleatório de eventos na exploração
 void explorarMapa(int inventario[], int *ouro, int *quantidadeItens, int *vida, int *vidaMaxima, int *ataque, int *defesa, int *experiencia, int *nivel)
 {
@@ -135,8 +136,7 @@ void combate(int inventario[], int *quantidadeItens, int *vida, int *vidaMaxima,
 	int vidaInimigo, ataqueInimigo;
 	int escolha;
 	int defendendo = 0;
-
-	// Escolhe o inimigo
+	
 	int inimigo = rand() % 7;
 
 	switch(inimigo)
@@ -350,7 +350,7 @@ void chefeFinal(int inventario[], int *quantidadeItens, int *vida, int *vidaMaxi
 
 	printf("\n=====================================\n");
 	printf("      CHEFE FINAL, CONTEMPLE!\n");
-	printf("        %s surgiu!\n", nomeChefe);
+	printf("     Dragão das Sombras surgiu!\n");
 	printf("=====================================\n");
 
 	while(*vida > 0 && vidaChefe > 0)
