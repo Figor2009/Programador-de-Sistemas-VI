@@ -41,7 +41,7 @@ int main()
 	{
 		printf("Arquivo aberto com sucesso!\n");
 		
-		for (int i = 0; i < 2; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			fscanf(arquivo,"%s\n%lf", palavra, &idade);
 			printf("%s\n%lf\n", palavra, idade);
