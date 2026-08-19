@@ -1,0 +1,93 @@
+CREATE TABLE departamento
+(
+	id_departamento SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	area_atuacao VARCHAR(100) NOT NULL
+);
+
+DROP TABLE departamento;
+
+CREATE TABLE espaco
+(
+	id_espaco SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	capacidade_max int NOT NULL,
+	localizacao VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE palestrante
+(
+	id_palestrante SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	telefone INT NOT NULL,
+	instituicao VARCHAR(200) NOT NULL
+);
+
+CREATE TABLE patrocinador
+(
+	id_patrocinador SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	cnpj VARCHAR(100) NOT NULL,
+	cidade VARCHAR(100) NOT NULL,
+	telefone INT NOT NULL
+);
+
+CREATE TABLE certificado
+(
+	id_certificado SERIAL PRIMARY KEY,
+	data_emissao DATE NOT NULL,
+	carga_horaria INT NOT NULL
+);
+
+CREATE TABLE inscricao
+(
+	id_inscricao SERIAL PRIMARY KEY,
+	data_emissao DATE NOT NULL,
+	situacao VARCHAR(100) NOT NULL,
+	id_certificado_FK INT, FOREIGN KEY (id_certificado_FK) REFERENCES certificado(id_certificado)
+);
+
+CREATE TABLE estudante
+(
+	id_estudante SERIAL PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	curso VARCHAR(100) NOT NULL,
+	periodo VARCHAR(20) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	id_inscricao_FK INT, FOREIGN KEY (id_inscricao_FK) REFERENCES inscricao(id_inscricao)
+);
+
+CREATE TABLE evento
+(
+	id_evento SERIAL PRIMARY KEY,
+	nome VARCHAR(150) NOT NULL,
+	descricao TEXT NOT NULL,
+	data_realizacao DATE NOT NULL,
+	carga_horaria INT NOT NULL,
+	id_departamento_FK INT, FOREIGN KEY (id_departamento_FK) REFERENCES departamento(id_departamento),
+	id_espaco_FK INT, FOREIGN KEY (id_espaco_FK) REFERENCES espaco(id_espaco)
+);
+
+DROP TABLE evento;
+
+CREATE TABLE evento_palestrante
+(
+	id_evento_palestrante SERIAL PRIMARY KEY,
+	id_palestrante_FK INT, FOREIGN KEY (id_palestrante_FK) REFERENCES palestrante(id_palestrante),
+	id_evento_FK INT, FOREIGN KEY (id_evento_FK) REFERENCES evento(id_evento)
+);
+
+CREATE TABLE evento_patrocinador
+(
+	id_evento_patrocinador SERIAL PRIMARY KEY,
+	id_patrocinador_FK INT, FOREIGN KEY (id_patrocinador_FK) REFERENCES patrocinador(id_patrocinador),
+	id_evento_FK INT, FOREIGN KEY (id_evento_FK) REFERENCES evento(id_evento)
+);
+
+CREATE TABLE evento_estudante
+(
+	id_evento_estudante SERIAL PRIMARY KEY,
+	id_estudante_FK INT, FOREIGN KEY (id_estudante_FK) REFERENCES estudante(id_estudante),
+	id_evento_FK INT, FOREIGN KEY (id_evento_FK) REFERENCES evento(id_evento)
+);
