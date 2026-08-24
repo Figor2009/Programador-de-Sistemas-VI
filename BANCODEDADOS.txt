@@ -91,3 +91,159 @@ CREATE TABLE evento_estudante
 	id_estudante_FK INT, FOREIGN KEY (id_estudante_FK) REFERENCES estudante(id_estudante),
 	id_evento_FK INT, FOREIGN KEY (id_evento_FK) REFERENCES evento(id_evento)
 );
+
+/*------------------------------INSERTS------------------------------*/
+
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (1, 'Edificio Epico', 'qualquer');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (2, 'Edificio Oliveira', 'local');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (3, 'Edificio Guaira', 'idk');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (4, 'Edificio d ficio', 'nao importa');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (5, 'Edificio dificil', 'dificuldade hard');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (6, 'Edificio Mauricio', 'souzer');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (7, 'Edificio facil', 'dificuldade easy');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (8, 'Edificio Lendario', 'indiferente');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (9, 'Edificio Comum', 'sla');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (10, 'Edificio Einstein', 'venda de ilhas');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (11, 'Edificio Hierophant', 'acomodamento');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (12, 'Edificio State York', 'n sei');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (13, 'Edificio Raro', 'teste');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (14, 'Edificio', 'tanto faz');
+INSERT INTO departamento (id_departamento, nome, area_atuacao) VALUES (15, 'Ed, Edd e Eddy', 'teoria');
+
+SELECT * FROM departamento;
+
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (1, 'cantina', 200, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (2, 'lanchonete', 150, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (3, 'sala de lazer', 30, 'pregueira');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (4, 'cozinha', 15, 'atrios');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (5, 'banheiro fem', 10, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (6, 'banheiro masc ', 15, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (7, 'banheiro def', 1, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (8, 'sala de piscina', 35, 'ribeiro');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (9, 'saunas', 50, 'ribeiro');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (10, 'sala de jogos', 367, 'pregueira');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (11, 'quartos', 200, 'pregueira');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (12, 'sala de exposicao', 400, 'montante');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (13, 'sala de fotos', 50, 'qwerty');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (14, 'area da frente', 700, 'ronny');
+INSERT INTO espaco (id_espaco, nome, capacidade_max, localizacao) VALUES (15, 'area superior', 200, 'ronny');
+
+SELECT * FROM espaco;
+
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (1, 'Paulo', 'e3h8d23', 'Dois Vizinhos', 91061817);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (2, 'Saulo', 'dofng4', 'Dois Vizinhos', 91054823);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (3, 'Pauled', 'w3adsfnjk', 'Sao Jorge do Oeste', 9102368);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (4, 'Roberto', 'e45yk90ds', 'Dois Vizinhos', 91063852);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (5, 'Osmar', 'xcversnj2', 'Sao Jorge do Sul', 91001237);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (6, 'Diane', 'xcbvj89wer', 'Pato Branco', 91045656);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (7, 'Frederica', ',mbnl9se43', 'Pato Branco', 91018888);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (8, 'Samara', 'cxvm98t', 'Dois Vizinhos', 91061817);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (9, 'Neymar', 'vcbnmkw410', 'Dois Vizinhos', 68492331);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (10, 'Coolguy', 'nldc31235', 'Francisco Beltrao', 91058910);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (11, 'Patricia', 'l0cdpqasm', 'Pato Branco', 91089022);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (12, 'Pedro Charles', 'we4misdv903', 'Pato Branco', 91066666);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (13, 'Hank Gibbelton', 'zxcvw4t', 'Ganso Preto', 91077777);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (14, 'Son Gohan', 'werty12345', 'Hiroshima', 91025623);
+INSERT INTO patrocinador (id_patrocinador, nome, cnpj, cidade, telefone)
+VALUES (15, 'marcelo.', 'squibbleton129', 'O vale', 91061022);
+
+SELECT * FROM patrocinador;
+
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (1, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (2, 'Thyrone', 'oieusouothyrone@gmail.com', 91061717, 'VilaDanila');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (3, 'Jack in the Box', 'templeochests1562@gmail.com', 12378978, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (4, 'Einstein', 'macafall@gmail.com', 91919191, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (5, 'Marx', 'ilovechaos@gmail.com', 654387, 'Popstar');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (6, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (7, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (8, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (9, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (10, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (11, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (12, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (13, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (14, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+INSERT INTO palestrante (id_palestrante, nome, email, telefone, instituicao)
+VALUES (15, 'Carl Marx', 'ilovehistory@gmail.com', 11111111, 'DaVinchi');
+
+SELECT * FROM palestrante;
+
+INSERT INTO evento (id_evento, nome, descricao, data_realizacao, carga_horaria, id_departamento_fk, id_espaco_fk)
+VALUES (1, 'Competicao Robotica', 'Equipes competem entre si para completar desafios', '2026/11/03', 6, 2, 5);
+INSERT INTO evento (id_evento, nome, descricao, data_realizacao, carga_horaria, id_departamento_fk, id_espaco_fk)
+VALUES (2, 'Culinariafest', 'Exposicao de comidas tipicas', '2026/09/25', 12, 4, 2);
+INSERT INTO evento (id_evento, nome, descricao, data_realizacao, carga_horaria, id_departamento_fk, id_espaco_fk)
+VALUES (3, 'Cinema', 'Absolute cinema', '2027/01/06', 42, 13, 1);
+INSERT INTO evento (id_evento, nome, descricao, data_realizacao, carga_horaria, id_departamento_fk, id_espaco_fk)
+VALUES (4, 'Mega atacadao', 'Diversos produtos para comprar', '2026/02/23', 6, 9, 7);
+INSERT INTO evento (id_evento, nome, descricao, data_realizacao, carga_horaria, id_departamento_fk, id_espaco_fk)
+VALUES (5, 'Aquario', 'Exposicao de aquarios de diversas especies marinhas', '2027/01/30', 52, 3, 5);
+
+SELECT * FROM evento;
+
+INSERT INTO certificado (id_certificado, data_emissao, carga_horaria)
+VALUES (1, '2026/07/07', 128);
+INSERT INTO certificado (id_certificado, data_emissao, carga_horaria)
+VALUES (2, '2026/02/07', 64);
+INSERT INTO certificado (id_certificado, data_emissao, carga_horaria)
+VALUES (3, '2026/07/07', 32);
+INSERT INTO certificado (id_certificado, data_emissao, carga_horaria)
+VALUES (4, '2026/12/31', 12);
+INSERT INTO certificado (id_certificado, data_emissao, carga_horaria)
+VALUES (5, '2026/12/07', 6);
+
+SELECT * FROM certificado;
+
+INSERT INTO inscricao (id_inscricao, data_emissao, situacao, id_certificado_fk)
+VALUES (1, '2025/12/12', 'ok', 3);
+INSERT INTO inscricao (id_inscricao, data_emissao, situacao, id_certificado_fk)
+VALUES (2, '2025/02/17', 'ok', 1);
+INSERT INTO inscricao (id_inscricao, data_emissao, situacao, id_certificado_fk)
+VALUES (3, '2025/05/06', 'pausado', 2);
+INSERT INTO inscricao (id_inscricao, data_emissao, situacao, id_certificado_fk)
+VALUES (4, '2025/12/12', 'ok', 5);
+INSERT INTO inscricao (id_inscricao, data_emissao, situacao, id_certificado_fk)
+VALUES (5, '2025/07/03', 'pausado', 4);
+
+SELECT * FROM inscricao;
+
+INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
+VALUES (1, 'Igor', 'TI', 'Tarde', 'igorantonio@gmail.com', 2);
+INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
+VALUES (2, 'Picanha Paulo', 'Carpintaria', 'Manha', 'guesswho@gmail.com', 1);
+INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
+VALUES (3, 'Guilherme', 'TI', 'Manha', 'guipiresbanana@gmail.com', 3);
+INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
+VALUES (4, 'Favero', 'Saude Fisica', 'Tarde', 'eh2931@gmail.com', 4);
+INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
+VALUES (5, 'Pablo', 'Engenharia Mecanica', 'Manha', 'xXCR0SH3RXx@gmail.com', 5);
+
+SELECT * FROM estudante;
