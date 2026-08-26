@@ -5,13 +5,11 @@ CREATE TABLE departamento
 	area_atuacao VARCHAR(100) NOT NULL
 );
 
-DROP TABLE departamento;
-
 CREATE TABLE espaco
 (
 	id_espaco SERIAL PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
-	capacidade_max int NOT NULL,
+	capacidade_max INT NOT NULL,
 	localizacao VARCHAR(200) NOT NULL
 );
 
@@ -68,8 +66,6 @@ CREATE TABLE evento
 	id_departamento_FK INT, FOREIGN KEY (id_departamento_FK) REFERENCES departamento(id_departamento),
 	id_espaco_FK INT, FOREIGN KEY (id_espaco_FK) REFERENCES espaco(id_espaco)
 );
-
-DROP TABLE evento;
 
 CREATE TABLE evento_palestrante
 (
@@ -246,4 +242,40 @@ VALUES (4, 'Favero', 'Saude Fisica', 'Tarde', 'eh2931@gmail.com', 4);
 INSERT INTO estudante (id_estudante, nome, curso, periodo, email, id_inscricao_fk)
 VALUES (5, 'Pablo', 'Engenharia Mecanica', 'Manha', 'xXCR0SH3RXx@gmail.com', 5);
 
-SELECT * FROM estudante;
+/*-----------------------------------------------------Tipos d' select------------------------------------------------------*/
+
+SELECT * FROM estudante; /*exibe a tabela inteira*/
+
+SELECT id_estudante, nome FROM estudante; /*seleciona as colunas citadas, precisa de virgula pra separar*/
+
+SELECT id_estudante AS IdDoEstudante FROM estudante; /*aparece o "IdDoEstudante" como nome da coluna*/
+
+/*AND, OR e NOT se aplicam pra seleção tbm*/
+
+SELECT * FROM estudante WHERE id_estudante BETWEEN 2 AND 4; /*seleciona ints da coluna entre si*/
+
+SELECT * FROM estudante WHERE periodo = 'Manha'; /*seleciona um dado especifico em uma coluna*/
+
+SELECT * FROM estudante WHERE periodo IN ('Manha', 'Tarde'); /*seleciona vários dados específicos em UMA coluna*/ 
+
+SELECT 10 + 5; /*resultado*/
+
+SELECT * FROM estudante WHERE nome LIKE 'I%'; /*seleciona da tabela um elemento que começa com "I"*/
+
+SELECT * FROM estudante WHERE nome LIKE '%or'; /*seleciona da tabela um elemento que termina com "or"*/
+
+SELECT * FROM estudante WHERE nome LIKE '%go'; /*seleciona da tabela um elemento que termina com "or"*/
+
+SELECT * FROM estudante WHERE nome LIKE '%u%'; /*seleciona da tabela um elemento que contém "u"*/
+
+/*existe o ILIKE que seria a versão sem ser sensível a letras maiúsculas e minúsculas*/
+
+SELECT DISTINCT curso FROM estudante; /*seleciona todos os elementos distintos da tabela*/
+
+/*ORDER BY seria seleção em ordem: ASC e DESC para ascendente e descendente*/
+
+SELECT * FROM estudante LIMIT 3; /*impõe um limite para visualização das tabelas*/
+
+SELECT * FROM estudante LIMIT 3 OFFSET 2; /*impõe um limite para visualização das tabelas E começa de um ponto especifico*/
+
+/*--------------------------------------------------------------------------------------------------------------------------*/
