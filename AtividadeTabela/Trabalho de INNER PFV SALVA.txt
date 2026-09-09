@@ -50,7 +50,7 @@ INSERT INTO alunos_antigos (nome, cidade) VALUES
 
 SELECT * FROM alunos_antigos;
 
-SELECT * FROM alunos_antigos;
+SELECT * FROM alunos;
 
 /*===================================questao 1, 2, 3 e 4===================================*/
 
@@ -164,3 +164,70 @@ ON a.curso_id = c.id;
 
 /*Inner pega todos os dados que estão SOMENTE entre as duas tabelas*/
 /*Right pega TODOS os dados que estão na tabela DIREITA junto da segunda tabela*/
+
+/*=======================================questao  21=======================================*/
+
+SELECT nome
+FROM alunos
+UNION
+SELECT nome
+FROM alunos_antigos;
+
+/*=======================================questao  22=======================================*/
+
+/*Apenas uma vez*/
+/*UNION não mostra elementos repetidos*/
+
+/*=======================================questao  23=======================================*/
+
+SELECT cidade
+FROM alunos
+UNION
+SELECT cidade
+FROM alunos_antigos;
+
+/*=======================================questao  24=======================================*/
+
+SELECT nome
+FROM alunos
+UNION
+SELECT nome
+FROM alunos_antigos
+ORDER BY nome;
+
+/*=======================================questao  25=======================================*/
+
+SELECT nome
+FROM alunos
+UNION ALL
+SELECT nome
+FROM alunos_antigos;
+
+/*=======================================questao  26=======================================*/
+
+/*A de union all*/
+/*pq ela apresenta ELEMENTOS DUPLICADOS!!!!!!!*/
+
+/*=======================================questao  27=======================================*/
+
+/*UNION mostra todos os dados unicos*/
+/*UNION ALL mostra TODOS os dados*/
+
+/*=======================================questao  28=======================================*/
+
+/*JOIN é utilizado para mostrar os dados entre duas colunas separadas*/
+/*UNION é utilizado para juntar os dados em uma unica tabela*/
+
+/*=======================================questao  29=======================================*/
+
+/*Join, são 2 entidades diferentes e precisam ser separadas*/
+
+/*=======================================questao  30=======================================*/
+
+/*Union, são pessoas, então podem ser juntadas*/
+
+/*=======================================questao  31=======================================*/
+
+/*O MESMO!!! n tem elemento repetido ent n muda*/
+
+/*=======================================CHALLENGE 1=======================================*/
