@@ -1,0 +1,166 @@
+CREATE TABLE cursos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    carga_horaria INT NOT NULL
+);
+
+CREATE TABLE alunos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INT,
+    cidade VARCHAR(50),
+    curso_id INT,
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+
+CREATE TABLE alunos_antigos (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cidade VARCHAR(50)
+);
+
+INSERT INTO cursos (nome, carga_horaria) VALUES
+('Programação de Sistemas', 1200),
+('Redes de Computadores', 1000),
+('Banco de Dados', 800),
+('Desenvolvimento Web', 1000),
+('Internet das Coisas', 600),
+('Eletrônica', 800);
+
+INSERT INTO alunos (nome, idade, cidade, curso_id) VALUES
+('Ana Silva', 18, 'Curitiba', 1),
+('Bruno Santos', 21, 'Londrina', 2),
+('Carlos Souza', 19, 'Curitiba', 1),
+('Daniel Oliveira', 25, 'Maringá', 3),
+('Eduarda Lima', 20, 'Curitiba', 2),
+('Felipe Costa', 17, 'Londrina', 1),
+('Gabriela Alves', 22, 'Maringá', 3),
+('Henrique Rocha', 19, 'Curitiba', 2),
+('Isabela Martins', 20, 'Londrina', 1),
+('João Pereira', 23, 'Curitiba', 3),
+('Karen Mendes', 18, 'Maringá', NULL),
+('Lucas Ferreira', 26, 'Curitiba', 2);
+
+INSERT INTO alunos_antigos (nome, cidade) VALUES
+('Marcos Lima', 'Curitiba'),
+('Patrícia Souza', 'Londrina'),
+('Rafael Costa', 'Maringá'),
+('Ana Silva', 'Curitiba'),
+('Carlos Souza', 'Curitiba');
+
+SELECT * FROM alunos_antigos;
+
+SELECT * FROM alunos_antigos;
+
+/*===================================questao 1, 2, 3 e 4===================================*/
+
+SELECT * FROM alunos;
+
+SELECT nome, cidade FROM alunos;
+
+SELECT * FROM alunos WHERE cidade = 'Curitiba';
+
+SELECT * FROM alunos WHERE idade >= 20;
+
+/*========================================questao 5========================================*/
+
+SELECT alunos.nome, cursos.nome
+FROM alunos
+INNER JOIN cursos
+ON alunos.curso_id = cursos.id;
+
+/*========================================questao 6========================================*/
+
+SELECT alunos.nome, alunos.idade, cursos.nome
+FROM alunos
+INNER JOIN cursos
+ON alunos.curso_id = cursos.id;
+
+/*========================================questao 7========================================*/
+
+SELECT alunos.nome, alunos.cidade, cursos.nome, cursos.carga_horaria
+FROM alunos
+INNER JOIN cursos
+ON alunos.curso_id = cursos.id;
+
+/*========================================questao 8========================================*/
+
+SELECT alunos.nome AS Aluno, alunos.cidade AS Cidade, cursos.nome AS Curso, cursos.carga_horaria AS Carga_horaria
+FROM alunos
+INNER JOIN cursos
+ON alunos.curso_id = cursos.id;
+
+/*========================================questao 9========================================*/
+
+SELECT a.nome, a.cidade, c.nome FROM cursos AS c
+INNER JOIN alunos AS a ON a.curso_id = c.id
+WHERE c.nome = 'Programação de Sistemas';
+
+/*========================================questao 10========================================*/
+
+SELECT a.nome, c.nome, c.carga_horaria FROM cursos AS c
+INNER JOIN alunos AS a ON a.curso_id = c.id
+WHERE c.carga_horaria > 900;
+
+/*=======================================questao  11=======================================*/
+
+SELECT a.nome, c.nome
+FROM alunos AS a
+LEFT JOIN cursos AS c
+ON a.curso_id = c.id;
+
+/*=======================================questao  12=======================================*/
+
+/*Aluna Karen Menders*/
+/*pq ela n se inscreveu em nenhum curso, mas aparece por que tambem e chamado*/
+
+/*=======================================questao  13=======================================*/
+
+SELECT a.nome, a.cidade, c.nome
+FROM alunos AS a
+LEFT JOIN cursos AS c
+ON a.curso_id = c.id;
+
+/*=======================================questao  14=======================================*/
+
+SELECT a.nome, c.nome
+FROM alunos AS a
+LEFT JOIN cursos AS c
+ON a.curso_id = c.id
+WHERE c.id IS NULL;
+
+/*=======================================questao  15=======================================*/
+
+SELECT a.nome, a.cidade, c.nome
+FROM alunos AS a
+LEFT JOIN cursos AS c
+ON a.curso_id = c.id
+WHERE a.cidade = 'Curitiba';
+
+/*=======================================questao  16=======================================*/
+
+SELECT c.nome, a.nome
+FROM alunos AS a
+RIGHT JOIN cursos AS c
+ON a.curso_id = c.id;
+
+/*=======================================questao  17=======================================*/
+
+/*Curso de internet das coisas, eletrônica e desenvolvimento web*/
+
+/*=======================================questao  18=======================================*/
+
+SELECT c.nome, c.carga_horaria, a.nome
+FROM alunos AS a
+RIGHT JOIN cursos AS c
+ON a.curso_id = c.id;
+
+/*=======================================questao  19=======================================*/
+
+/*Inner pega todos os dados que estão SOMENTE entre as duas tabelas*/
+/*Left pega TODOS os dados que estão na tabela ESQUERDA junto da segunda tabela*/
+
+/*=======================================questao  20=======================================*/
+
+/*Inner pega todos os dados que estão SOMENTE entre as duas tabelas*/
+/*Right pega TODOS os dados que estão na tabela DIREITA junto da segunda tabela*/
