@@ -1,0 +1,62 @@
+CREATE TABLE dimensao
+(
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(4) NOT NULL
+);
+
+CREATE TABLE registro_de_vida
+(
+	id SERIAL PRIMARY KEY,
+	nome VARCHAR(255) NOT NULL,
+	omega NUMERIC NOT NULL,
+	id_dimensao INT, FOREIGN KEY (id_dimensao) REFERENCES dimensao(id)
+);
+
+SELECT * FROM dimensao;
+
+SELECT * FROM registro_de_vida;
+
+INSERT INTO dimensao (id, nome) VALUES (1, 'C875');
+INSERT INTO dimensao (id, nome) VALUES (2, 'C774');
+INSERT INTO dimensao (id, nome) VALUES (3, 'C999');
+INSERT INTO dimensao (id, nome) VALUES (4, 'C321');
+
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (1, 'Douglas Gabriel Ribeiro Avila', 0.742, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (2, 'Dougla Ribeiro Avila', 0.531, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (3, 'Douglas G. Ribeiro Avila', 0.864, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (4, 'Igor Antonio De Almeida', 0.425, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (5, 'Igor Almeida', 0.782, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (6, 'Igor Antonio Almeida', 0.316, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (7, 'João Gabriel Alves Garlet', 0.653, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (8, 'João Gabriel Garlet', 0.287, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (9, 'João G. Alves Garlet', 0.915, 3);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (10, 'Luiz Carlos Vescovi', 0.478, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (11, 'Luiz Vescovi', 0.694, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (12, 'Luiz C. Carlos Vescovi', 0.352, 4);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (13, 'Marcos Samuel Rodrigues', 0.821, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (14, 'Marcos Rodrigues', 0.264, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (15, 'Marcos S. Rodrigues', 0.573, 3);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (16, 'Nicolas Gabriel Marchi Ferreira', 0.391, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (17, 'Nicolas Marchi Ferreira', 0.728, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (18, 'Nicolas Gabriel Ferreira', 0.612, 4);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (19, 'Ana Cristina Souza', 0.452, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (20, 'Fernanda Oliveira', 0.537, 2);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (21, 'Acassio Pereira', 0.683, 3);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (22, 'Ariel Santos', 0.349, 4);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (23, 'Gabriel Alves', 0.771, 1);
+INSERT INTO registro_de_vida (id, nome, omega, id_dimensao) VALUES (24, 'Marcos Antonio', 0.498, 2);
+
+/* questao 5*/
+SELECT d.nome AS nome_dimensao, rv.nome, rv.omega, ROUND((rv.omega * 1.618), 3) AS Fator_N FROM registro_de_vida AS rv
+INNER JOIN dimensao AS d
+ON d.id = rv.id_dimensao
+WHERE d.nome IN ('C875', 'C774')
+AND(
+rv.nome LIKE '%Douglas%' 
+OR rv.nome LIKE '%Igor%'
+OR rv.nome LIKE '%João%'
+OR rv.nome LIKE '%Luiz%'
+OR rv.nome LIKE '%Marcos%'
+OR rv.nome LIKE '%Nicolas%'
+)
+ORDER BY rv.omega ASC;
